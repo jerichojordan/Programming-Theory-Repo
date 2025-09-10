@@ -6,8 +6,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private List<GameObject> carPrefabs;
     [SerializeField] private Transform spawnPrefabTransform;
     [SerializeField] private Quaternion spawnRot;
-    public Vector3 spawnPos;
-    public bool buttonPressed;
+    private Vector3 spawnPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
