@@ -3,6 +3,7 @@ using UnityEngine;
 public class MoveCar : MonoBehaviour
 {
     public float speed = 1000.0f;
+    private float speedMultiplier = 1000.0f;
     private Rigidbody carRb;
     private bool isOnGround;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +17,7 @@ public class MoveCar : MonoBehaviour
     {
         if (isOnGround)
         {
-            carRb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Acceleration);
+            carRb.AddForce(transform.forward * speed * speedMultiplier * Time.deltaTime, ForceMode.Force);
         }
     }
 
@@ -32,6 +33,13 @@ public class MoveCar : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = false;
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Plane"))
+        {
+            Destroy(gameObject);
         }
     }
 }
