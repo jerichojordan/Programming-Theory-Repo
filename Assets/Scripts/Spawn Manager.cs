@@ -21,9 +21,23 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnCar(0);
         }
+        else if (Input.GetButtonDown("Fire2"))
+        {
+            SpawnCar(1);
+        }else if (Input.GetButtonDown("Fire3"))
+        {
+            SpawnCar(2);
+        }else if (Input.GetButtonDown("Jump"))
+        {
+            SpawnCar(3);
+        }
     }
     public void SpawnCar(int index)
     {
         Instantiate(carPrefabs[index], spawnPos, spawnRot);
+    }
+    public void SpawnCar()
+    {
+        Instantiate(carPrefabs[Random.Range(0,carPrefabs.Count)], spawnPos, spawnRot);
     }
 }
