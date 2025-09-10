@@ -18,12 +18,10 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Fire1") == 1 && !buttonPressed)
+        if (Input.GetButtonDown("Fire1"))
         {
             SpawnCar(0);
-            buttonPressed = true;
         }
-        else if (Input.GetAxis("Fire1") == 0 && buttonPressed) buttonPressed = false;
     }
     public void SpawnCar(int index)
     {
